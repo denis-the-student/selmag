@@ -5,35 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 1">
-      <change afterPath="$PROJECT_DIR$/catalogue-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/CatalogueService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/BadRequestControllerAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductsRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/payload/NewProductPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/payload/UpdateProductPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/application-standalone.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsRestClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/RestClientProductsRestClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/BadRequestControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/BadRequestControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductsRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductsRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/RestClientProductsRestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsRestClientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/payload/NewProductPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/payload/NewProductPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/payload/UpdateProductPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/payload/UpdateProductPayload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/repository/InMemoryProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/repository/InMemoryProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/service/DefaultProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/service/DefaultProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +35,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="lesson-2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.6/spring-web-6.1.6-sources.jar!/org/springframework/web/client/RestClient.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -88,7 +70,7 @@
     &quot;Spring Boot.CatalogueService.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.ManagerApplication.executor&quot;: &quot;Run&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lesson-2&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -102,7 +84,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -138,7 +120,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CatalogueService">
+  <component name="RunManager" selected="Spring Boot.ManagerApplication">
     <configuration name="console.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$APPLICATION_CONFIG_DIR$/consoles/db/760f65ee-b187-4158-b079-a05170722b37/console.sql" />
       <script-mode>FILE</script-mode>
@@ -159,8 +141,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
-      <option name="ACTIVE_PROFILES" value="standalone" />
+    <configuration name="ManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="manager-app" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ag.selm.manager.ManagerApplication" />
@@ -178,6 +159,7 @@
       <list>
         <item itemvalue="Spring Boot.ManagerApplication" />
         <item itemvalue="Spring Boot.CatalogueService" />
+        <item itemvalue="Spring Boot.ManagerApplication" />
         <item itemvalue="Spring Boot.ManagerApplication" />
         <item itemvalue="Spring Boot.ManagerApplication" />
       </list>
@@ -209,6 +191,10 @@
       <workItem from="1715369424703" duration="925000" />
       <workItem from="1715410770770" duration="20550000" />
       <workItem from="1715448589007" duration="12000" />
+      <workItem from="1715611417969" duration="561000" />
+      <workItem from="1715611989532" duration="479000" />
+      <workItem from="1715621474460" duration="20000" />
+      <workItem from="1715798322116" duration="638000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 1">
       <option name="closed" value="true" />
@@ -270,16 +256,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson 1" />
     <option name="LAST_COMMIT_MESSAGE" value="lesson 1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

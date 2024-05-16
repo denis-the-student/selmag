@@ -36,7 +36,7 @@ public class ProductRestController {
     }
 
     @PatchMapping
-    public ResponseEntity<?> updateProduct(@PathVariable("productId") int productId,
+    public ResponseEntity<Void> updateProduct(@ModelAttribute("product") Product product,
                                            @Valid @RequestBody UpdateProductPayload payload,
                                            BindingResult bindingResult) throws BindException {
         if (bindingResult.hasErrors()) {
@@ -46,25 +46,25 @@ public class ProductRestController {
                 throw new BindException(bindingResult);
             }
         } else {
-            this.productService.updateProduct(productId, payload.title(), payload.details());
+            this.productService.updateProduct(product.getId(), payload.title(), payload.details());
             return ResponseEntity.noContent().build();
         }
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deleteProduct(@PathVariable("productId") int productId) {
-        this.productService.deleteProduct(productId);
+    public ResponseEntity<Void> deleteProduct(@ModelAttribute("product") Product product) {
+        this.productService.deleteProduct(product.getId());
         return ResponseEntity.noContent().build();
     }
 
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<ProblemDetail> handleNoSuchElementException(NoSuchElementException exception,
                                                                       Locale locale) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-            .body(ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,
                 this.messageSource.getMessage(exception.getMessage(), new Object[0],
-                    exception.getMessage(), locale)));
+                        exception.getMessage(), locale));
 
+        return ResponseEntity.of(problemDetail).build();
     }
 }
 

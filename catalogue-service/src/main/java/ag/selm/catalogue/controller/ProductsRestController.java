@@ -27,7 +27,7 @@ public class ProductsRestController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createProduct(@Valid @RequestBody NewProductPayload payload,
+    public ResponseEntity<Product> createProduct(@Valid @RequestBody NewProductPayload payload,
                                            BindingResult bindingResult,
                                            UriComponentsBuilder uriComponentsBuilder)
         throws BindException {
