@@ -1,4 +1,21 @@
 selmag:
-  services:
+  service:
     catalogue:
       url: http://localhost:8081
+      username: cat
+      password: password
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/selmag_manager_db
+    username: manager_user
+    password: password
+  flyway:
+    schemas:
+      - public
+      - user_management
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
