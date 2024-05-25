@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 3 init">
+    <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 4: basic auth for catalogue service and form auth for manager app">
+      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/SecurityBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/security/OAuthClientHttpRequestInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductsRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductsRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/service/DefaultProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/service/DefaultProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/application-standalone.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsRestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsRestClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsRestClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsRestClientImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/templates/catalogue/products/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/resources/templates/catalogue/products/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +36,16 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="7745fb3d21ff106a4869f1574af85f794fa6e019" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/registration/ClientRegistration.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/registration/ClientRegistrationRepository.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.6/spring-web-6.1.6-sources.jar!/org/springframework/http/HttpHeaders.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.6/spring-web-6.1.6-sources.jar!/org/springframework/web/client/RestClient.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="KubernetesApiProvider">{
@@ -60,42 +62,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.CatalogueService.executor": "Run",
-    "Spring Boot.ManagerApplication.executor": "Run",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "lesson-3",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/denis/Dropbox/Learning/Java/Projects/selmag-parent/catalogue-service/src/main/java/ag/selm",
-    "last_opened_file_path": "C:/Users/yanba/Desktop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Java Scratch.Scratch (1).executor&quot;: &quot;Run&quot;,
+    &quot;Java Scratch.Scratch.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CatalogueService.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ManagerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lesson-4&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/denis/Dropbox/Learning/Java/Projects/selmag-parent/catalogue-service/src/main/java/ag/selm&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yanba/Desktop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ag.selm.manager.client" />
@@ -123,11 +130,27 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CatalogueService">
+  <component name="RunManager" selected="Spring Boot.ManagerApplication">
     <configuration name="console.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$APPLICATION_CONFIG_DIR$/consoles/db/760f65ee-b187-4158-b079-a05170722b37/console.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
+    </configuration>
+    <configuration name="Scratch (1)" type="Java Scratch" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scratch" />
+      <module name="manager-app" />
+      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/ScratchBCryptEncoder.java" />
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scratch" />
+      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="CatalogueService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="standalone" />
@@ -144,7 +167,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="ManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ACTIVE_PROFILES" value="standalone" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="manager-app" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ag.selm.manager.ManagerApplication" />
@@ -160,16 +184,15 @@
     </configuration>
     <list>
       <item itemvalue="Database Script.console.sql" />
+      <item itemvalue="Java Scratch.Scratch (1)" />
+      <item itemvalue="Java Scratch.Scratch" />
       <item itemvalue="Spring Boot.ManagerApplication" />
       <item itemvalue="Spring Boot.CatalogueService" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.CatalogueService" />
-        <item itemvalue="Spring Boot.ManagerApplication" />
-        <item itemvalue="Spring Boot.ManagerApplication" />
-        <item itemvalue="Spring Boot.CatalogueService" />
-        <item itemvalue="Spring Boot.ManagerApplication" />
+        <item itemvalue="Java Scratch.Scratch" />
       </list>
     </recent_temporary>
   </component>
@@ -203,6 +226,16 @@
       <workItem from="1715611989532" duration="479000" />
       <workItem from="1715621474460" duration="20000" />
       <workItem from="1715798322116" duration="638000" />
+      <workItem from="1715928983689" duration="29000" />
+      <workItem from="1715929022526" duration="4172000" />
+      <workItem from="1716032698111" duration="4306000" />
+      <workItem from="1716065756606" duration="15000" />
+      <workItem from="1716133995317" duration="230000" />
+      <workItem from="1716197948135" duration="12564000" />
+      <workItem from="1716268653492" duration="1390000" />
+      <workItem from="1716272122465" duration="5551000" />
+      <workItem from="1716319077507" duration="11000" />
+      <workItem from="1716364704780" duration="29138000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 1">
       <option name="closed" value="true" />
@@ -220,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715869783897</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="lesson 4: basic auth for catalogue service and form auth for manager app">
+      <option name="closed" value="true" />
+      <created>1716365669324</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716365669324</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +273,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="lesson-4" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="lesson-3" />
@@ -262,7 +308,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="lesson-3" />
+                        <option value="lesson-4" />
                       </list>
                     </value>
                   </entry>
@@ -278,7 +324,9 @@
     <MESSAGE value="lesson 1" />
     <MESSAGE value="lesson-2 final" />
     <MESSAGE value="lesson 3 init" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 3 init" />
+    <MESSAGE value="Merge pull request #2 from denis-the-student/lesson-3&#10;&#10;lesson 3 final" />
+    <MESSAGE value="lesson 4: Authentication via DB: basic auth for catalogue service and form auth for manager app" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 4: Authentication via DB: basic auth for catalogue service and form auth for manager app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

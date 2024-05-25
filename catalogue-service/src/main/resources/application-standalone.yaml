@@ -1,7 +1,10 @@
+server:
+  port: 8081
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/selmag_pg
-    username: user
+    url: jdbc:postgresql://localhost:5432/selmag_catalogue_db
+    username: catalogue_user
     password: password
   flyway:
     schemas:
@@ -12,8 +15,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
-#logging:
-#  level:
-#    sql: info
-server:
-  port: 8081
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8082/realms/selmag

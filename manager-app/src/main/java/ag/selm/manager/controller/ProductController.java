@@ -1,7 +1,7 @@
 package ag.selm.manager.controller;
 
 import ag.selm.manager.client.BadRequestException;
-import ag.selm.manager.client.ProductsRestClient;
+import ag.selm.manager.client.CatalogueRestClient;
 import ag.selm.manager.controller.payload.UpdateProductPayload;
 import ag.selm.manager.entity.Product;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,12 +20,12 @@ import java.util.NoSuchElementException;
 @RequestMapping("catalogue/products/{productId:\\d+}")
 public class ProductController {
 
-    private final ProductsRestClient productsRestClient;
+    private final CatalogueRestClient catalogueRestClient;
     private final MessageSource messageSource;
 
     @ModelAttribute("product")
     public Product product(@PathVariable("productId") int productId) {
-        return this.productsRestClient.findProduct(productId)
+        return this.catalogueRestClient.findProduct(productId)
             .orElseThrow(() -> new NoSuchElementException("catalogue.errors.product.not_found"));
     }
 
@@ -43,7 +43,7 @@ public class ProductController {
     public String updateProduct(@ModelAttribute(name = "product", binding = false) Product product,
                                 UpdateProductPayload payload, Model model) {
         try {
-            this.productsRestClient.updateProduct(product.id(), payload.title(), payload.details());
+            this.catalogueRestClient.updateProduct(product.id(), payload.title(), payload.details());
             return "redirect:/catalogue/products/%d".formatted(product.id());
         } catch (BadRequestException exception) {
             model.addAttribute("payload", payload);
@@ -54,7 +54,7 @@ public class ProductController {
 
     @PostMapping("delete")
     public String deleteProduct(@ModelAttribute("product") Product product) {
-        this.productsRestClient.deleteProduct(product.id());
+        this.catalogueRestClient.deleteProduct(product.id());
         return "redirect:/catalogue/products/list";
     }
 

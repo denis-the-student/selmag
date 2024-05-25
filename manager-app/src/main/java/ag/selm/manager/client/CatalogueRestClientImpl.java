@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-public class ProductsRestClientImpl implements ProductsRestClient {
+public class CatalogueRestClientImpl implements CatalogueRestClient {
 
     private static final ParameterizedTypeReference<List<Product>> PRODUCTS_TYPE_REFERENCE =
             new ParameterizedTypeReference<>() {
