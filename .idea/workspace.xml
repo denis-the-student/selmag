@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 3 final">
-      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/entity/Authority.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/entity/SelmagUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/repository/SelmagUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/security/SelmagUserDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/resources/db/migration/V21_1_1__Basic_schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 4: basic auth for catalogue service and form auth for manager app">
+      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/SecurityBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/security/OAuthClientHttpRequestInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/application-standalone.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsRestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/CatalogueRestClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsRestClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/CatalogueRestClientImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +42,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/registration/ClientRegistration.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/registration/ClientRegistrationRepository.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.6/spring-web-6.1.6-sources.jar!/org/springframework/http/HttpHeaders.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.6/spring-web-6.1.6-sources.jar!/org/springframework/web/client/RestClient.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="KubernetesApiProvider">{
@@ -95,7 +91,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -134,7 +130,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Java Scratch.Scratch (1)">
+  <component name="RunManager" selected="Spring Boot.ManagerApplication">
     <configuration name="console.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$APPLICATION_CONFIG_DIR$/consoles/db/760f65ee-b187-4158-b079-a05170722b37/console.sql" />
       <script-mode>FILE</script-mode>
@@ -171,7 +167,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="ManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="standalone" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="manager-app" />
@@ -186,9 +182,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Database Script.console.sql" />
+      <item itemvalue="Java Scratch.Scratch (1)" />
+      <item itemvalue="Java Scratch.Scratch" />
+      <item itemvalue="Spring Boot.ManagerApplication" />
+      <item itemvalue="Spring Boot.CatalogueService" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ManagerApplication" />
         <item itemvalue="Spring Boot.CatalogueService" />
         <item itemvalue="Java Scratch.Scratch" />
       </list>
@@ -233,7 +235,7 @@
       <workItem from="1716268653492" duration="1390000" />
       <workItem from="1716272122465" duration="5551000" />
       <workItem from="1716319077507" duration="11000" />
-      <workItem from="1716364704780" duration="747000" />
+      <workItem from="1716364704780" duration="29138000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 1">
       <option name="closed" value="true" />
@@ -251,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715869783897</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="lesson 4: basic auth for catalogue service and form auth for manager app">
+      <option name="closed" value="true" />
+      <created>1716365669324</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716365669324</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +273,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="lesson-4" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="lesson-3" />
@@ -293,7 +308,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="lesson-3" />
+                        <option value="lesson-4" />
                       </list>
                     </value>
                   </entry>
@@ -309,7 +324,9 @@
     <MESSAGE value="lesson 1" />
     <MESSAGE value="lesson-2 final" />
     <MESSAGE value="lesson 3 init" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 3 init" />
+    <MESSAGE value="Merge pull request #2 from denis-the-student/lesson-3&#10;&#10;lesson 3 final" />
+    <MESSAGE value="lesson 4: Authentication via DB: basic auth for catalogue service and form auth for manager app" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 4: Authentication via DB: basic auth for catalogue service and form auth for manager app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
