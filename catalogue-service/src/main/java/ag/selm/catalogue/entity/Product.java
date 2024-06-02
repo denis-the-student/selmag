@@ -1,6 +1,7 @@
 package ag.selm.catalogue.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -12,10 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(schema = "catalogue", name = "product")
-@NamedQueries(
-        @NamedQuery(name = "Product.findAllByTitleLikeIgnoringCase",
-        query = "select p from Product p where p.title ilike :filter")
-)
 public class Product {
 
     @Id
@@ -24,6 +21,7 @@ public class Product {
 
     @Column(name = "title")
     @NotNull
+    @NotEmpty
     @Size(min = 3, max = 50)
     private String title;
 

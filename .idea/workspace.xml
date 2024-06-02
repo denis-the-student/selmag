@@ -4,16 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 4: basic auth for catalogue service and form auth for manager app">
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/SecurityBeans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/security/OAuthClientHttpRequestInterceptor.java" afterDir="false" />
+    <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 4: OAuth">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/messages_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/test/java/ag/selm/catalogue/controller/ProductsRestControllerIT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/test/java/ag/selm/catalogue/controller/config/TestingBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/test/java/ag/selm/catalogue/repository/ProductRepositoryIT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/test/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalogue-service/src/test/resources/sql/products.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager-app/src/test/java/ag/selm/manager/config/TestingBeans.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager-app/src/test/java/ag/selm/manager/controller/ProductsControllerIT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager-app/src/test/java/ag/selm/manager/controller/ProductsControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager-app/src/test/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/application-standalone.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/payload/NewProductPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/payload/NewProductPayload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/payload/UpdateProductPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/payload/UpdateProductPayload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/resources/messages.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/SecurityBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/SecurityBeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/security/OAuthClientHttpRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/security/OAuthClientHttpRequestInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/resources/messages_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +48,7 @@
         <option value="HTML File" />
         <option value="Record" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -42,11 +61,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/registration/ClientRegistration.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/registration/ClientRegistrationRepository.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-client/6.2.4/spring-security-oauth2-client-6.2.4-sources.jar!/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.6/spring-web-6.1.6-sources.jar!/org/springframework/http/HttpHeaders.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.6/spring-web-6.1.6-sources.jar!/org/springframework/web/client/RestClient.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/java/lang/Thread.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/jdk/internal/misc/InnocuousThread.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/jdk/internal/ref/CleanerImpl.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.6/spring-beans-6.1.6-sources.jar!/org/springframework/beans/factory/annotation/Autowired.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.6/spring-beans-6.1.6.jar!/org/springframework/beans/factory/annotation/Autowired.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/6.1.6/spring-context-6.1.6.jar!/org/springframework/context/MessageSource.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/6.1.6/spring-test-6.1.6-sources.jar!/org/springframework/test/web/servlet/request/MockMvcRequestBuilders.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -62,47 +83,67 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Java Scratch.Scratch (1).executor&quot;: &quot;Run&quot;,
-    &quot;Java Scratch.Scratch.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.CatalogueService.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ManagerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lesson-4&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/denis/Dropbox/Learning/Java/Projects/selmag-parent/catalogue-service/src/main/java/ag/selm&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/yanba/Desktop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.ProductRepositoryIT.dataInitializationCheck.executor": "Run",
+    "JUnit.ProductRepositoryIT.executor": "Run",
+    "JUnit.ProductsControllerIT.executor": "Run",
+    "JUnit.ProductsControllerIT.getNewProductPage_ReturnsNewProductPage.executor": "Run",
+    "JUnit.ProductsControllerIT.getProductsList_ReturnsProductsListPage.executor": "Run",
+    "JUnit.ProductsControllerTest.createProduct_RequestIsInvalid_ReturnsProductFormWithErrors.executor": "Run",
+    "JUnit.ProductsControllerTest.createProduct_RequestIsValid_ReturnsDirectionToProductPage.executor": "Run",
+    "JUnit.ProductsControllerTest.executor": "Run",
+    "JUnit.ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail.executor": "Run",
+    "JUnit.ProductsRestControllerIT.createProduct_RequestIsInvalid_ReturnsProblemDetail.executor": "Run",
+    "JUnit.ProductsRestControllerIT.createProduct_RequestIsValid_ReturnsNewProduct.executor": "Run",
+    "JUnit.ProductsRestControllerIT.createProduct_UserIsNotAuthorized_ReturnsForbidden.executor": "Run",
+    "JUnit.ProductsRestControllerIT.executor": "Run",
+    "JUnit.ProductsRestControllerIT.findProducts_ReturnsProductsList.executor": "Run",
+    "Java Scratch.Scratch (1).executor": "Run",
+    "Java Scratch.Scratch.executor": "Run",
+    "Maven.catalogue-service [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.CatalogueService.executor": "Run",
+    "Spring Boot.ManagerApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "lesson-5-testing",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/denis/Dropbox/Learning/Java/Projects/selmag-parent/catalogue-service/src/main/java/ag/selm",
+    "last_opened_file_path": "C:/Users/denis/Dropbox/Learning/Java/Projects/selmag-parent/catalogue-service/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JAVA&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "PostgreSQL"
+    ],
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ag.selm.manager.client" />
@@ -111,16 +152,26 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\denis\Dropbox\Learning\Java\Projects\selmag-parent\catalogue-service\src\main\resources" />
+      <recent name="C:\Users\denis\Dropbox\Learning\Java\Projects\selmag-parent\manager-app\src\test\resources" />
       <recent name="C:\Users\denis\Dropbox\Learning\Java\Projects\selmag-parent\catalogue-service\src\main\java\ag\selm\catalogue\controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yanba\Dropbox\Learning\Java\Projects\selmag-parent\catalogue-service\src\test\resources" />
       <recent name="C:\Users\yanba\Dropbox\Learning\Java\Projects\selmag-parent\manager-app\src\main\resources\templates" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ag.selm.catalogue.controller" />
       <recent name="ag.selm.catalogue.service" />
       <recent name="ag.selm.catalogue.repository" />
       <recent name="ag.selm.catalogue.entity" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ag.selm.catalogue.repository" />
+      <recent name="ag.selm.catalogue.controller" />
+      <recent name="ag.selm.manager.controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -130,11 +181,89 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ManagerApplication">
+  <component name="RunManager" selected="JUnit.ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail">
     <configuration name="console.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$APPLICATION_CONFIG_DIR$/consoles/db/760f65ee-b187-4158-b079-a05170722b37/console.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
+    </configuration>
+    <configuration name="ProductRepositoryIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalogue-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ag.selm.catalogue.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ag.selm.catalogue.repository" />
+      <option name="MAIN_CLASS_NAME" value="ag.selm.catalogue.repository.ProductRepositoryIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductRepositoryIT.dataInitializationCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalogue-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ag.selm.catalogue.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ag.selm.catalogue.repository" />
+      <option name="MAIN_CLASS_NAME" value="ag.selm.catalogue.repository.ProductRepositoryIT" />
+      <option name="METHOD_NAME" value="dataInitializationCheck" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductsRestControllerIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalogue-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ag.selm.catalogue.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ag.selm.catalogue.controller" />
+      <option name="MAIN_CLASS_NAME" value="ag.selm.catalogue.controller.ProductsRestControllerIT" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalogue-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ag.selm.catalogue.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ag.selm.catalogue.controller" />
+      <option name="MAIN_CLASS_NAME" value="ag.selm.catalogue.controller.ProductsRestControllerIT" />
+      <option name="METHOD_NAME" value="createProduct_RequestIsInValid_ReturnsProblemDetail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductsRestControllerIT.findProducts_ReturnsProductsList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="catalogue-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ag.selm.catalogue.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ag.selm.catalogue.controller" />
+      <option name="MAIN_CLASS_NAME" value="ag.selm.catalogue.controller.ProductsRestControllerIT" />
+      <option name="METHOD_NAME" value="findProducts_ReturnsProductsList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Scratch (1)" type="Java Scratch" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Scratch" />
@@ -145,14 +274,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Scratch" />
-      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CatalogueService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="CatalogueService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="standalone" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="catalogue-service" />
@@ -185,14 +307,21 @@
     <list>
       <item itemvalue="Database Script.console.sql" />
       <item itemvalue="Java Scratch.Scratch (1)" />
-      <item itemvalue="Java Scratch.Scratch" />
+      <item itemvalue="JUnit.ProductRepositoryIT.dataInitializationCheck" />
+      <item itemvalue="JUnit.ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail" />
+      <item itemvalue="JUnit.ProductRepositoryIT" />
+      <item itemvalue="JUnit.ProductsRestControllerIT.findProducts_ReturnsProductsList" />
+      <item itemvalue="JUnit.ProductsRestControllerIT" />
       <item itemvalue="Spring Boot.ManagerApplication" />
       <item itemvalue="Spring Boot.CatalogueService" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.CatalogueService" />
-        <item itemvalue="Java Scratch.Scratch" />
+        <item itemvalue="JUnit.ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail" />
+        <item itemvalue="JUnit.ProductRepositoryIT" />
+        <item itemvalue="JUnit.ProductRepositoryIT.dataInitializationCheck" />
+        <item itemvalue="JUnit.ProductsRestControllerIT" />
+        <item itemvalue="JUnit.ProductsRestControllerIT.findProducts_ReturnsProductsList" />
       </list>
     </recent_temporary>
   </component>
@@ -236,6 +365,19 @@
       <workItem from="1716272122465" duration="5551000" />
       <workItem from="1716319077507" duration="11000" />
       <workItem from="1716364704780" duration="29138000" />
+      <workItem from="1716621164215" duration="19795000" />
+      <workItem from="1716754967890" duration="1176000" />
+      <workItem from="1716793452931" duration="15279000" />
+      <workItem from="1716985588205" duration="1075000" />
+      <workItem from="1716991784439" duration="11150000" />
+      <workItem from="1717050455237" duration="181000" />
+      <workItem from="1717050649205" duration="93000" />
+      <workItem from="1717050754645" duration="45000" />
+      <workItem from="1717050808700" duration="10338000" />
+      <workItem from="1717145162511" duration="4804000" />
+      <workItem from="1717224524552" duration="8536000" />
+      <workItem from="1717246986456" duration="682000" />
+      <workItem from="1717247681012" duration="20983000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 1">
       <option name="closed" value="true" />
@@ -261,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716365669324</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="lesson 4: OAuth">
+      <option name="closed" value="true" />
+      <created>1716621223918</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716621223918</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +476,8 @@
     <MESSAGE value="lesson 3 init" />
     <MESSAGE value="Merge pull request #2 from denis-the-student/lesson-3&#10;&#10;lesson 3 final" />
     <MESSAGE value="lesson 4: Authentication via DB: basic auth for catalogue service and form auth for manager app" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 4: Authentication via DB: basic auth for catalogue service and form auth for manager app" />
+    <MESSAGE value="lesson 4: OAuth" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 4: OAuth" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -335,11 +486,33 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="6" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductRestController.java</url>
+          <line>38</line>
+          <properties class="ag.selm.catalogue.controller.ProductRestController" method="updateProduct">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/selmag_parent$ProductsControllerTest.ic" NAME="ProductsControllerTest Coverage Results" MODIFIED="1716631445638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ag.selm.manager.controller.*</FILTER>
+    </SUITE>
   </component>
 </project>
