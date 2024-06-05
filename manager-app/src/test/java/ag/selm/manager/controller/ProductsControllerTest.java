@@ -1,7 +1,7 @@
 package ag.selm.manager.controller;
 
 import ag.selm.manager.client.BadRequestException;
-import ag.selm.manager.client.CatalogueRestClient;
+import ag.selm.manager.client.ProductsClient;
 import ag.selm.manager.controller.payload.NewProductPayload;
 import ag.selm.manager.entity.Product;
 import org.junit.jupiter.api.DisplayName;
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.*;
 class ProductsControllerTest {
 
     @Mock
-    CatalogueRestClient restClient;
+    ProductsClient restClient;
 
     @InjectMocks
     ProductsController controller;

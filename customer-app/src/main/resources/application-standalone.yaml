@@ -1,0 +1,7 @@
+server:
+  port: 8083
+
+selmag:
+  service:
+    catalogue:
+      url: http://localhost:8081/catalogue-api/products
