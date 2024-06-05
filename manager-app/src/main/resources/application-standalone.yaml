@@ -1,7 +1,7 @@
 selmag:
   service:
     catalogue:
-      url: http://localhost:8081
+      url: http://localhost:8081/catalogue-api/products
       registration-id: keycloak
 
 spring:

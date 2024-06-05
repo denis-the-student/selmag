@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-public class CatalogueRestClientImpl implements CatalogueRestClient {
+public class RestClientProductsClient implements ProductsClient {
 
     private static final ParameterizedTypeReference<List<Product>> PRODUCTS_TYPE_REFERENCE =
             new ParameterizedTypeReference<>() {
@@ -26,7 +26,7 @@ public class CatalogueRestClientImpl implements CatalogueRestClient {
     public List<Product> findAllProducts(String filter) {
         return this.restClient
                 .get()
-                .uri("/catalogue-api/products?filter={filter}", filter)
+                .uri("?filter={filter}", filter)
                 .retrieve()
                 .body(PRODUCTS_TYPE_REFERENCE);
     }
@@ -36,7 +36,6 @@ public class CatalogueRestClientImpl implements CatalogueRestClient {
         try {
             return this.restClient
                     .post()
-                    .uri("/catalogue-api/products")
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(new NewProductPayload(title, details))
                     .retrieve()
@@ -51,7 +50,7 @@ public class CatalogueRestClientImpl implements CatalogueRestClient {
     public Optional<Product> findProduct(int productId) {
         try {
             return Optional.ofNullable(this.restClient.get()
-                    .uri("catalogue-api/products/{productId}", productId)
+                    .uri("/{productId}", productId)
                     .retrieve()
                     .body(Product.class));
         } catch (HttpClientErrorException.NotFound exception) {
@@ -64,7 +63,7 @@ public class CatalogueRestClientImpl implements CatalogueRestClient {
         try {
             this.restClient
                     .patch()
-                    .uri("/catalogue-api/products/{productId}", productId)
+                    .uri("/{productId}", productId)
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(new UpdateProductPayload(title, details))
                     .retrieve()
@@ -78,7 +77,7 @@ public class CatalogueRestClientImpl implements CatalogueRestClient {
     @Override
     public void deleteProduct(int productId) {
             this.restClient.delete()
-                    .uri("catalogue-api/products/{productId}", productId)
+                    .uri("/{productId}", productId)
                     .retrieve()
                     .toBodilessEntity();
     }

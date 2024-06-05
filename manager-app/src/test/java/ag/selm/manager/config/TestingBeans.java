@@ -1,6 +1,6 @@
 package ag.selm.manager.config;
 
-import ag.selm.manager.client.CatalogueRestClientImpl;
+import ag.selm.manager.client.RestClientProductsClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,9 +26,9 @@ public class TestingBeans {
 
     @Bean
     @Primary
-    public CatalogueRestClientImpl testCatalogueRestClient(
+    public RestClientProductsClient testCatalogueRestClient(
             @Value("${selmag.service.catalogue.url:http://localhost:54321}") String baseUrl) {
-        return new CatalogueRestClientImpl(RestClient.builder()
+        return new RestClientProductsClient(RestClient.builder()
                 .baseUrl(baseUrl)
                 .build());
     }

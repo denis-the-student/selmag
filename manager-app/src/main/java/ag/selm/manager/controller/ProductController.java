@@ -1,7 +1,7 @@
 package ag.selm.manager.controller;
 
 import ag.selm.manager.client.BadRequestException;
-import ag.selm.manager.client.CatalogueRestClient;
+import ag.selm.manager.client.ProductsClient;
 import ag.selm.manager.controller.payload.UpdateProductPayload;
 import ag.selm.manager.entity.Product;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,17 +20,17 @@ import java.util.NoSuchElementException;
 @RequestMapping("catalogue/products/{productId:\\d+}")
 public class ProductController {
 
-    private final CatalogueRestClient catalogueRestClient;
+    private final ProductsClient productsClient;
     private final MessageSource messageSource;
 
     @ModelAttribute("product")
-    public Product product(@PathVariable("productId") int productId) {
-        return this.catalogueRestClient.findProduct(productId)
+    public Product loadProduct(@PathVariable("productId") int productId) {
+        return this.productsClient.findProduct(productId)
             .orElseThrow(() -> new NoSuchElementException("catalogue.errors.product.not_found"));
     }
 
     @GetMapping
-    public String getProduct() {
+    public String getProductPage() {
         return "catalogue/products/product";
     }
 
@@ -43,7 +43,7 @@ public class ProductController {
     public String updateProduct(@ModelAttribute(name = "product", binding = false) Product product,
                                 UpdateProductPayload payload, Model model) {
         try {
-            this.catalogueRestClient.updateProduct(product.id(), payload.title(), payload.details());
+            this.productsClient.updateProduct(product.id(), payload.title(), payload.details());
             return "redirect:/catalogue/products/%d".formatted(product.id());
         } catch (BadRequestException exception) {
             model.addAttribute("payload", payload);
@@ -54,7 +54,7 @@ public class ProductController {
 
     @PostMapping("delete")
     public String deleteProduct(@ModelAttribute("product") Product product) {
-        this.catalogueRestClient.deleteProduct(product.id());
+        this.productsClient.deleteProduct(product.id());
         return "redirect:/catalogue/products/list";
     }
 

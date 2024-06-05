@@ -1,7 +1,7 @@
 package ag.selm.manager.controller;
 
 import ag.selm.manager.client.BadRequestException;
-import ag.selm.manager.client.CatalogueRestClient;
+import ag.selm.manager.client.ProductsClient;
 import ag.selm.manager.controller.payload.NewProductPayload;
 import ag.selm.manager.entity.Product;
 import lombok.RequiredArgsConstructor;
@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("catalogue/products")
 public class ProductsController {
 
-    private final CatalogueRestClient catalogueRestClient;
+    private final ProductsClient productsClient;
 
     @GetMapping("list")
-    public String getProductsList(Model model, @RequestParam(name = "filter", required = false) String filter) {
-        model.addAttribute("products", this.catalogueRestClient.findAllProducts(filter));
+    public String getProductsListPage(Model model, @RequestParam(name = "filter", required = false) String filter) {
+        model.addAttribute("products", this.productsClient.findAllProducts(filter));
         model.addAttribute("filter", filter);
         return "catalogue/products/list";
     }
@@ -34,7 +34,7 @@ public class ProductsController {
     @PostMapping("create")
     public String createProduct(NewProductPayload payload, Model model) {
         try {
-            Product product = this.catalogueRestClient.createProduct(payload.title(), payload.details());
+            Product product = this.productsClient.createProduct(payload.title(), payload.details());
             return "redirect:/catalogue/products/%d".formatted(product.id());
         } catch (BadRequestException exception) {
             model.addAttribute("payload", payload);

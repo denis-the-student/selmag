@@ -1,6 +1,6 @@
 package ag.selm.manager.config;
 
-import ag.selm.manager.client.CatalogueRestClientImpl;
+import ag.selm.manager.client.RestClientProductsClient;
 import ag.selm.manager.security.OAuthClientHttpRequestInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,13 +14,13 @@ import org.springframework.web.client.RestClient;
 public class ClientBeans {
 
     @Bean
-    CatalogueRestClientImpl catalogueRestClient(
-            @Value("${selmag.service.catalogue.url:http://localhost:8081}") String baseUrl,
+    RestClientProductsClient productsRestClient(
+            @Value("${selmag.service.catalogue.url:http://localhost:8081/catalogue-api/products}") String baseUrl,
             ClientRegistrationRepository clientRegistrationRepository,
             OAuth2AuthorizedClientRepository authorizedClientRepository,
             @Value("${selmag.service.catalogue.registration-id:keycloak}") String registrationId) {
 
-        return new CatalogueRestClientImpl(
+        return new RestClientProductsClient(
                 RestClient.builder()
                         .baseUrl(baseUrl)
                         .requestInterceptor(new OAuthClientHttpRequestInterceptor(
