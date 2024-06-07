@@ -11,8 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Map;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("catalogue-api/products")
@@ -43,7 +41,7 @@ public class ProductsRestController {
             return ResponseEntity
                     .created(uriComponentsBuilder
                             .replacePath("catalogue-api/products/{productId}")
-                            .build(Map.of("productId", product.getId())))
+                            .build(product.getId()))
                     .body(product);
         }
     }

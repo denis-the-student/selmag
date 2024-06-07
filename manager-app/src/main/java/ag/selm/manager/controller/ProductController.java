@@ -1,6 +1,6 @@
 package ag.selm.manager.controller;
 
-import ag.selm.manager.client.BadRequestException;
+import ag.selm.manager.client.exception.ClientBadRequestException;
 import ag.selm.manager.client.ProductsClient;
 import ag.selm.manager.controller.payload.UpdateProductPayload;
 import ag.selm.manager.entity.Product;
@@ -45,7 +45,7 @@ public class ProductController {
         try {
             this.productsClient.updateProduct(product.id(), payload.title(), payload.details());
             return "redirect:/catalogue/products/%d".formatted(product.id());
-        } catch (BadRequestException exception) {
+        } catch (ClientBadRequestException exception) {
             model.addAttribute("payload", payload);
             model.addAttribute("errors", exception.getErrors());
             return "catalogue/products/edit";

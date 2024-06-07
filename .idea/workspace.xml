@@ -1,49 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 5: final">
-      <change afterPath="$PROJECT_DIR$/customer-app/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/CustomerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/client/ProductsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/client/WebClientProductsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/config/ClientBeans.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/ProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/payload/NewProductReviewPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/entity/FavouriteProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/entity/ProductReview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/repository/FavouriteProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/repository/InMemoryFavouriteProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/repository/InMemoryProductReviewRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/repository/ProductReviewRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/service/DefaultFavouriteProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/service/DefaultProductReviewService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/service/FavouriteProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/service/ProductReviewService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/resources/application-standalone.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/resources/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/resources/messages_en.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/resources/templates/customer/products/favourites.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/resources/templates/customer/products/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/resources/templates/customer/products/product.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/customer-app/src/main/resources/templates/errors/404.html" afterDir="false" />
+    <list default="true" id="cd824b58-0a36-4621-af57-7f9a7763185a" name="Changes" comment="lesson 7: reactive rest service">
+      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/client/FavouriteProductsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/client/ProductReviewsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/client/WebClientFavouriteProductsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/client/WebClientProductReviewsClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/client/exception/ClientBadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/client/exception/util/ErrorHandlingUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/payload/FavouriteProductPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/FeedbackServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/controller/ExceptionHandlingControllerAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/controller/FavouriteProductsRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/controller/ProductReviewsRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/controller/payload/FavouriteProductPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/controller/payload/NewProductReviewPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/entity/FavouriteProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/entity/ProductReview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/resources/application-standalone.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/resources/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feedback-service/src/main/resources/messages_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/exception/util/ErrorHandlingUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/config/SecurityBeans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/CatalogueRestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/ProductsClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/CatalogueRestClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/RestClientProductsClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/config/ClientBeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/CatalogueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/CatalogueServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductsRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/catalogue-service/src/main/java/ag/selm/catalogue/controller/ProductsRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/config/ClientBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/config/ClientBeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/ProductsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/payload/NewProductReviewPayload.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/controller/payload/NewProductReviewPayload.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/entity/ProductReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/entity/ProductReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/repository/FavouriteProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/repository/FavouriteProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/repository/InMemoryFavouriteProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/repository/InMemoryFavouriteProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/repository/InMemoryProductReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/repository/InMemoryProductReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/repository/ProductReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/repository/ProductReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/service/DefaultFavouriteProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/service/DefaultFavouriteProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/service/DefaultProductReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/service/DefaultProductReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/service/FavouriteProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/service/FavouriteProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/java/ag/selm/customer/service/ProductReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/feedback-service/src/main/java/ag/selm/feedback/service/ProductReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/resources/application-standalone.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/resources/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/resources/messages_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-app/src/main/resources/templates/customer/products/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/customer-app/src/main/resources/templates/customer/products/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/exception/ClientBadRequestException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/RestClientProductsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/RestClientProductsClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/controller/ProductsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/main/resources/application-standalone.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager-app/src/test/java/ag/selm/manager/config/TestingBeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/test/java/ag/selm/manager/config/TestingBeans.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manager-app/src/test/java/ag/selm/manager/controller/ProductsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager-app/src/test/java/ag/selm/manager/controller/ProductsControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -55,14 +66,36 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/feedback-service">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="feedback-service" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Record" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -78,14 +111,20 @@
     <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/java/lang/Thread.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/jdk/internal/misc/InnocuousThread.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk-17/lib/src.zip!/java.base/jdk/internal/ref/CleanerImpl.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.6/spring-beans-6.1.6-sources.jar!/org/springframework/beans/factory/annotation/Autowired.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/6.1.6/spring-beans-6.1.6.jar!/org/springframework/beans/factory/annotation/Autowired.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/6.1.6/spring-context-6.1.6.jar!/org/springframework/context/MessageSource.class" root0="SKIP_INSPECTION" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/6.1.6/spring-test-6.1.6-sources.jar!/org/springframework/test/web/servlet/request/MockMvcRequestBuilders.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.6/spring-web-6.1.6-sources.jar!/org/springframework/web/bind/support/WebExchangeBindException.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -97,78 +136,82 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JUnit.ProductRepositoryIT.dataInitializationCheck.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductRepositoryIT.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsControllerIT.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsControllerIT.getNewProductPage_ReturnsNewProductPage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsControllerIT.getProductsList_ReturnsProductsListPage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsControllerTest.createProduct_RequestIsInvalid_ReturnsProductFormWithErrors.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsControllerTest.createProduct_RequestIsValid_ReturnsDirectionToProductPage.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsRestControllerIT.createProduct_RequestIsInvalid_ReturnsProblemDetail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsRestControllerIT.createProduct_RequestIsValid_ReturnsNewProduct.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsRestControllerIT.createProduct_UserIsNotAuthorized_ReturnsForbidden.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsRestControllerIT.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductsRestControllerIT.findProducts_ReturnsProductsList.executor&quot;: &quot;Run&quot;,
-    &quot;Java Scratch.Scratch (1).executor&quot;: &quot;Run&quot;,
-    &quot;Java Scratch.Scratch.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.catalogue-service [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.CatalogueService.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.CustomerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ManagerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lesson-5-testing&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/denis/Dropbox/Learning/Java/Projects/selmag-parent/catalogue-service/src/main/java/ag/selm&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/denis/Dropbox/Learning/Java/Projects/selmag-parent/customer-app/src/main/resources/templates/errors&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.ProductRepositoryIT.dataInitializationCheck.executor": "Run",
+    "JUnit.ProductRepositoryIT.executor": "Run",
+    "JUnit.ProductsControllerIT.executor": "Run",
+    "JUnit.ProductsControllerIT.getNewProductPage_ReturnsNewProductPage.executor": "Run",
+    "JUnit.ProductsControllerIT.getProductsList_ReturnsProductsListPage.executor": "Run",
+    "JUnit.ProductsControllerTest.createProduct_RequestIsInvalid_ReturnsProductFormWithErrors.executor": "Run",
+    "JUnit.ProductsControllerTest.createProduct_RequestIsValid_ReturnsDirectionToProductPage.executor": "Run",
+    "JUnit.ProductsControllerTest.executor": "Run",
+    "JUnit.ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail.executor": "Run",
+    "JUnit.ProductsRestControllerIT.createProduct_RequestIsInvalid_ReturnsProblemDetail.executor": "Run",
+    "JUnit.ProductsRestControllerIT.createProduct_RequestIsValid_ReturnsNewProduct.executor": "Run",
+    "JUnit.ProductsRestControllerIT.createProduct_UserIsNotAuthorized_ReturnsForbidden.executor": "Run",
+    "JUnit.ProductsRestControllerIT.executor": "Run",
+    "JUnit.ProductsRestControllerIT.findProducts_ReturnsProductsList.executor": "Run",
+    "Java Scratch.Scratch (1).executor": "Run",
+    "Java Scratch.Scratch.executor": "Run",
+    "Maven.catalogue-service [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.CatalogueService.executor": "Run",
+    "Spring Boot.CatalogueServiceApplication.executor": "Run",
+    "Spring Boot.CustomerApplication.executor": "Run",
+    "Spring Boot.FeedbackServiceApplication.executor": "Run",
+    "Spring Boot.ManagerApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "full.screen.before.presentation.mode": "false",
+    "git-widget-placeholder": "lesson-5-testing",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/yanba/Dropbox/Learning/Java/Projects/selmag-parent/feedback-service/src/main/java/ag/selm",
+    "last_opened_file_path": "C:/Users/yanba/Dropbox/Learning/Java/Projects/selmag-parent/feedback-service/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
-      &quot;PostgreSQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "PostgreSQL"
     ],
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JAVA&quot;
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ag.selm.customer.client.exception" />
+      <recent name="ag.selm.customer.client" />
       <recent name="ag.selm.customer.repository" />
       <recent name="ag.selm.customer.service" />
-      <recent name="ag.selm.customer.client" />
       <recent name="ag.selm.manager.client" />
-      <recent name="ag.selm.manager.controller.payload" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yanba\Dropbox\Learning\Java\Projects\selmag-parent\feedback-service\src\main\resources" />
       <recent name="C:\Users\denis\Dropbox\Learning\Java\Projects\selmag-parent\customer-app\src\main\resources\templates\errors" />
       <recent name="C:\Users\denis\Dropbox\Learning\Java\Projects\selmag-parent\catalogue-service\src\main\resources" />
       <recent name="C:\Users\denis\Dropbox\Learning\Java\Projects\selmag-parent\manager-app\src\test\resources" />
@@ -183,10 +226,11 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ag.selm.manager.client.exception" />
+      <recent name="ag.selm.feedback.entity" />
+      <recent name="ag.selm.feedback.service" />
+      <recent name="ag.selm.feedback.repository" />
       <recent name="ag.selm.catalogue.controller" />
-      <recent name="ag.selm.catalogue.service" />
-      <recent name="ag.selm.catalogue.repository" />
-      <recent name="ag.selm.catalogue.entity" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="ag.selm.catalogue.repository" />
@@ -203,26 +247,11 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.CustomerApplication">
+  <component name="RunManager" selected="Spring Boot.CatalogueServiceApplication">
     <configuration name="console.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$APPLICATION_CONFIG_DIR$/consoles/db/760f65ee-b187-4158-b079-a05170722b37/console.sql" />
       <script-mode>FILE</script-mode>
       <method v="2" />
-    </configuration>
-    <configuration name="ProductRepositoryIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="catalogue-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ag.selm.catalogue.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ag.selm.catalogue.repository" />
-      <option name="MAIN_CLASS_NAME" value="ag.selm.catalogue.repository.ProductRepositoryIT" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="catalogue-service" />
@@ -249,11 +278,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CatalogueService" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scratch" />
+      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CatalogueServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="standalone" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="catalogue-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="ag.selm.catalogue.CatalogueService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ag.selm.catalogue.CatalogueServiceApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ag.selm.catalogue.*" />
@@ -278,8 +314,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+    <configuration name="FeedbackServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" value="standalone" />
+      <module name="feedback-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ag.selm.feedback.FeedbackServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="manager-app" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ag.selm.manager.ManagerApplication" />
@@ -296,19 +339,20 @@
     <list>
       <item itemvalue="Database Script.console.sql" />
       <item itemvalue="Java Scratch.Scratch (1)" />
+      <item itemvalue="Java Scratch.Scratch" />
       <item itemvalue="JUnit.ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail" />
-      <item itemvalue="JUnit.ProductRepositoryIT" />
+      <item itemvalue="Spring Boot.FeedbackServiceApplication" />
       <item itemvalue="Spring Boot.CustomerApplication" />
       <item itemvalue="Spring Boot.ManagerApplication" />
-      <item itemvalue="Spring Boot.CatalogueService" />
+      <item itemvalue="Spring Boot.CatalogueServiceApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.CustomerApplication" />
-        <item itemvalue="Spring Boot.CatalogueService" />
+        <item itemvalue="Spring Boot.CatalogueServiceApplication" />
         <item itemvalue="Spring Boot.ManagerApplication" />
         <item itemvalue="JUnit.ProductsRestControllerIT.createProduct_RequestIsInValid_ReturnsProblemDetail" />
-        <item itemvalue="JUnit.ProductRepositoryIT" />
+        <item itemvalue="Java Scratch.Scratch" />
       </list>
     </recent_temporary>
   </component>
@@ -367,7 +411,9 @@
       <workItem from="1717247681012" duration="25867000" />
       <workItem from="1717399580581" duration="35225000" />
       <workItem from="1717487021153" duration="14608000" />
-      <workItem from="1717582982619" duration="607000" />
+      <workItem from="1717582982619" duration="1775000" />
+      <workItem from="1717587693789" duration="293000" />
+      <workItem from="1717587996055" duration="39274000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 1">
       <option name="closed" value="true" />
@@ -409,7 +455,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717321414225</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="lesson 6: reactive customer app">
+      <option name="closed" value="true" />
+      <created>1717586800774</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717586800774</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +510,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="lesson-4" />
+                        <option value="lesson-7-reactive-rest-service" />
                       </list>
                     </value>
                   </entry>
@@ -477,20 +531,18 @@
     <MESSAGE value="lesson 4: OAuth" />
     <MESSAGE value="Merge pull request #3 from denis-the-student/lesson-4&#10;&#10;Lesson 4" />
     <MESSAGE value="lesson 5: final" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 5: final" />
+    <MESSAGE value="lesson 6: reactive customer app" />
+    <MESSAGE value="Merge pull request #5 from denis-the-student/lesson-6-reactive-app&#10;&#10;lesson 6: reactive customer app" />
+    <MESSAGE value="lesson 7: reactive rest service" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 7: reactive rest service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/manager-app/src/main/java/ag/selm/manager/client/BadRequestException.java</url>
-          <line>17</line>
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
