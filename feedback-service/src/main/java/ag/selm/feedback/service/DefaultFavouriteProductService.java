@@ -1,7 +1,7 @@
-package ag.selm.customer.service;
+package ag.selm.feedback.service;
 
-import ag.selm.customer.entity.FavouriteProduct;
-import ag.selm.customer.repository.FavouriteProductRepository;
+import ag.selm.feedback.entity.FavouriteProduct;
+import ag.selm.feedback.repository.FavouriteProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -27,12 +27,12 @@ public class DefaultFavouriteProductService implements FavouriteProductService {
     }
 
     @Override
-    public Mono<FavouriteProduct> findFavouriteProductByProductId(int productId) {
+    public Mono<FavouriteProduct> findFavouriteProductByProduct(int productId) {
         return this.repository.findByProductId(productId);
     }
 
     @Override
-    public Flux<FavouriteProduct> findAllFavouriteProducts() {
+    public Flux<FavouriteProduct> findFavouriteProducts() {
         return this.repository.findAll();
     }
 }

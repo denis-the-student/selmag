@@ -1,12 +1,12 @@
 package ag.selm.manager.client;
 
+import ag.selm.manager.client.exception.util.ErrorHandlingUtils;
 import ag.selm.manager.controller.payload.NewProductPayload;
 import ag.selm.manager.controller.payload.UpdateProductPayload;
 import ag.selm.manager.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
-import org.springframework.http.ProblemDetail;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
 
@@ -41,8 +41,7 @@ public class RestClientProductsClient implements ProductsClient {
                     .retrieve()
                     .body(Product.class);
         } catch (HttpClientErrorException.BadRequest exception) {
-            ProblemDetail problemDetail = exception.getResponseBodyAs(ProblemDetail.class);
-            throw new BadRequestException((List<String>) problemDetail.getProperties().get("errors"));
+            throw ErrorHandlingUtils.mapHttpClientErrorExceptionBadRequestToClientBadRequestException(exception);
         }
     }
 
@@ -69,8 +68,7 @@ public class RestClientProductsClient implements ProductsClient {
                     .retrieve()
                     .toBodilessEntity();
         } catch (HttpClientErrorException.BadRequest exception) {
-            ProblemDetail problemDetail = exception.getResponseBodyAs(ProblemDetail.class);
-            throw new BadRequestException((List<String>) problemDetail.getProperties().get("errors"));
+            throw ErrorHandlingUtils.mapHttpClientErrorExceptionBadRequestToClientBadRequestException(exception);
         }
     }
 

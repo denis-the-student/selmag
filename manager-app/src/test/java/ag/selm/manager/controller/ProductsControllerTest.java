@@ -1,6 +1,6 @@
 package ag.selm.manager.controller;
 
-import ag.selm.manager.client.BadRequestException;
+import ag.selm.manager.client.exception.ClientBadRequestException;
 import ag.selm.manager.client.ProductsClient;
 import ag.selm.manager.controller.payload.NewProductPayload;
 import ag.selm.manager.entity.Product;
@@ -55,7 +55,7 @@ class ProductsControllerTest {
         var payload = new NewProductPayload("  ", null);
         var model = new ConcurrentModel();
 
-        doThrow(new BadRequestException(List.of("Ошибка 1", "Ошибка 2")))
+        doThrow(new ClientBadRequestException(List.of("Ошибка 1", "Ошибка 2")))
                 .when(this.restClient)
                 .createProduct("  ", null);
 
