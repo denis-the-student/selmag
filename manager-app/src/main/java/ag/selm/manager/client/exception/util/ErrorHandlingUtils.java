@@ -19,10 +19,10 @@ public class ErrorHandlingUtils {
                 if (errorsList.isEmpty() || errorsList.get(0) instanceof String) {
                     @SuppressWarnings("unchecked")
                     List<String> errorMessages = (List<String>) errorsList;
-                    return new ClientBadRequestException(errorMessages);
+                    return new ClientBadRequestException(exception, errorMessages);
                 }
             }
         }
-        return new ClientBadRequestException(Collections.emptyList());
+        return new ClientBadRequestException(exception, Collections.emptyList());
     }
 }

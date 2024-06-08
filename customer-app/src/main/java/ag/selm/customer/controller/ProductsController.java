@@ -41,8 +41,7 @@ public class ProductsController {
         return this.favouriteProductsClient.findAllFavouriteProducts()
             .map(FavouriteProduct::productId)
             .collectList()
-            .flatMap(favouriteProducts -> this.productsClient.findAllProducts(filter)
-                .filter(product -> favouriteProducts.contains(product.id()))
+            .flatMap(favouriteProductsIds -> this.productsClient.findProductsByIds(favouriteProductsIds, filter)
                 .collectList()
                 .doOnNext(products -> model.addAttribute("products", products)))
             .thenReturn("customer/products/favourites");

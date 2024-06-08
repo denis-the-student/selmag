@@ -18,39 +18,40 @@ public class WebClientFavouriteProductsClient implements FavouriteProductsClient
     @Override
     public Flux<FavouriteProduct> findAllFavouriteProducts() {
         return this.webClient
-                .get()
-                .retrieve()
-                .bodyToFlux(FavouriteProduct.class);
+            .get()
+            .retrieve()
+            .bodyToFlux(FavouriteProduct.class);
     }
 
     @Override
     public Mono<FavouriteProduct> findFavouriteProductByProductId(int productId) {
         return this.webClient
-                .get()
-                .uri("/by-product-id/{productId}", productId)
-                .retrieve()
-                .bodyToMono(FavouriteProduct.class)
-                .onErrorComplete(WebClientResponseException.NotFound.class);
+            .get()
+            .uri("/by-product-id/{productId}", productId)
+            .retrieve()
+            .bodyToMono(FavouriteProduct.class)
+            .onErrorComplete(WebClientResponseException.NotFound.class);
     }
 
     @Override
     public Mono<FavouriteProduct> addProductToFavourites(int productId) {
         return this.webClient
-                .post()
-                .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(new FavouriteProductPayload(productId))
-                .retrieve()
-                .bodyToMono(FavouriteProduct.class)
-                .onErrorMap(WebClientResponseException.class, ErrorHandlingUtils::mapWebclientResponseExceptionToClientBadRequestException);
+            .post()
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(new FavouriteProductPayload(productId))
+            .retrieve()
+            .bodyToMono(FavouriteProduct.class)
+            .onErrorMap(WebClientResponseException.class,
+                ErrorHandlingUtils::mapWebclientResponseExceptionToClientBadRequestException);
     }
 
     @Override
     public Mono<Void> removeProductFromFavourites(int productId) {
         return this.webClient
-                .delete()
-                .uri("/by-product-id/{productId}", productId)
-                .retrieve()
-                .toBodilessEntity()
-                .then();
+            .delete()
+            .uri("/by-product-id/{productId}", productId)
+            .retrieve()
+            .toBodilessEntity()
+            .then();
     }
 }

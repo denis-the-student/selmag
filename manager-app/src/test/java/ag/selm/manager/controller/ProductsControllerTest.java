@@ -55,7 +55,7 @@ class ProductsControllerTest {
         var payload = new NewProductPayload("  ", null);
         var model = new ConcurrentModel();
 
-        doThrow(new ClientBadRequestException(List.of("Ошибка 1", "Ошибка 2")))
+        doThrow(new ClientBadRequestException(new Throwable(), List.of("Ошибка 1", "Ошибка 2")))
                 .when(this.restClient)
                 .createProduct("  ", null);
 

@@ -31,24 +31,24 @@ public class ProductController {
     public Mono<Product> loadProduct(@PathVariable("productId") int productId) {
 
         return this.productsClient.findProduct(productId)
-                .switchIfEmpty(Mono.error(new NoSuchElementException("customer.products.error.not_found")));
+            .switchIfEmpty(Mono.error(new NoSuchElementException("customer.products.error.not_found")));
     }
 
     @ModelAttribute("inFavourite")
     public Mono<Boolean> isProductInFavourite(@PathVariable("productId") int id) {
 
         return this.favouriteProductsClient
-                .findFavouriteProductByProductId(id)
-                .map(favouriteProduct -> true)
-                .defaultIfEmpty(false);
+            .findFavouriteProductByProductId(id)
+            .map(favouriteProduct -> true)
+            .defaultIfEmpty(false);
     }
 
     @ModelAttribute("reviews")
     public Mono<List<ProductReview>> loadProductReviews(@PathVariable("productId") int productId) {
 
         return this.productReviewsClient
-                .findProductReviewsByProduct(productId)
-                .collectList();
+            .findProductReviewsByProduct(productId)
+            .collectList();
     }
 
     @GetMapping
@@ -59,22 +59,23 @@ public class ProductController {
 
     @PostMapping("add-to-favourites")
     public Mono<String> addProductToFavourites(
-            @PathVariable("productId") int productId) {
+        @PathVariable("productId") int productId) {
 
         return this.favouriteProductsClient
-                .addProductToFavourites(productId)
-                .thenReturn("redirect:/customer/products/%d".formatted(productId))
-                .doOnError(exception -> log.error(exception.getMessage(), exception))
-                .onErrorResume(exception -> Mono.just("redirect:/customer/products/%d".formatted(productId)));
+            .addProductToFavourites(productId)
+            .thenReturn("redirect:/customer/products/%d".formatted(productId))
+            .doOnError(exception -> log.error(exception.getMessage(), exception))
+            .onErrorResume(exception ->
+                Mono.just("redirect:/customer/products/%d".formatted(productId)));
     }
 
     @PostMapping("remove-from-favourites")
     public Mono<String> removeProductFromFavourites(
-            @PathVariable("productId") int productId) {
+        @PathVariable("productId") int productId) {
 
         return this.favouriteProductsClient
-                .removeProductFromFavourites(productId)
-                .thenReturn("redirect:/customer/products/%d".formatted(productId));
+            .removeProductFromFavourites(productId)
+            .thenReturn("redirect:/customer/products/%d".formatted(productId));
     }
 
     @PostMapping("create-review")
@@ -82,13 +83,13 @@ public class ProductController {
                                      Model model, NewProductReviewPayload payload) {
 
         return this.productReviewsClient
-                .createProductReview(productId, payload.rating(), payload.review())
-                .thenReturn("redirect:/customer/products/%d".formatted(productId))
-                .onErrorResume(ClientBadRequestException.class, exception -> {
-                    model.addAttribute("payload", payload);
-                    model.addAttribute("errors", exception.getErrors());
-                    return Mono.just("customer/products/product");
-                });
+            .createProductReview(productId, payload.rating(), payload.review())
+            .thenReturn("redirect:/customer/products/%d".formatted(productId))
+            .onErrorResume(ClientBadRequestException.class, exception -> {
+                model.addAttribute("payload", payload);
+                model.addAttribute("errors", exception.getErrors());
+                return Mono.just("customer/products/product");
+            });
     }
 
     @ExceptionHandler(NoSuchElementException.class)

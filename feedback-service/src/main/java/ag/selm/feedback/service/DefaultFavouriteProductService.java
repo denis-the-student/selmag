@@ -17,8 +17,16 @@ public class DefaultFavouriteProductService implements FavouriteProductService {
 
     @Override
     public Mono<FavouriteProduct> addProductToFavourites(int productId) {
-        return this.repository.save(
-            new FavouriteProduct(UUID.randomUUID(), productId));
+        return this.repository.findByProductId(productId).hasElement()
+            .flatMap(hasElement -> {
+                if (hasElement) {
+                    return Mono.empty();
+                }
+                else {
+                    return this.repository.save(
+                        new FavouriteProduct(UUID.randomUUID(), productId));
+                }
+            });
     }
 
     @Override

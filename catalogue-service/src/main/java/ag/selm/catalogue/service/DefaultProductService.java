@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -21,6 +22,15 @@ public class DefaultProductService implements ProductService {
             return this.productRepository.findAllByTitleLikeIgnoreCase("%" + filter + "%");
         } else {
             return this.productRepository.findAll();
+        }
+    }
+
+    @Override
+    public Iterable<Product> findProductsByIds(List<Integer> ids, String filter) {
+        if (filter != null && !filter.isBlank()) {
+            return this.productRepository.findProductsByIdInAndTitleLikeIgnoreCase(ids, "%" + filter + "%");
+        } else {
+            return this.productRepository.findProductsByIdIn(ids);
         }
     }
 

@@ -13,7 +13,12 @@ public class ClientBadRequestException extends RuntimeException{
 
     private final List<String> errors;
 
-    public ClientBadRequestException(List<String> errors) {
+    public ClientBadRequestException(Throwable cause, List<String> errors) {
+        super(cause);
         this.errors = errors;
     }
+//
+//    public ClientBadRequestException(List<String> errors) {
+//        this.errors = errors;
+//    }
 }
