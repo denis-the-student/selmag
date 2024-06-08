@@ -7,6 +7,9 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+import java.util.Optional;
+
 @RequiredArgsConstructor
 public class WebClientProductsClient implements ProductsClient {
 
@@ -17,6 +20,19 @@ public class WebClientProductsClient implements ProductsClient {
         return webClient
             .get()
             .uri("?filter={filter}", filter)
+            .retrieve()
+            .bodyToFlux(Product.class);
+    }
+
+    @Override
+    public Flux<Product> findProductsByIds(List<Integer> ids, String filter) {
+        return webClient
+            .get()
+            .uri(uriBuilder -> uriBuilder
+                .path("/by-ids")
+                .queryParam("ids", ids)
+                .queryParamIfPresent("filter", Optional.ofNullable(filter))
+                .build())
             .retrieve()
             .bodyToFlux(Product.class);
     }

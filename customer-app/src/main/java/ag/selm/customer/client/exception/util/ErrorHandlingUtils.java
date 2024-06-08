@@ -9,7 +9,8 @@ import java.util.List;
 
 public class ErrorHandlingUtils {
 
-    public static ClientBadRequestException mapWebclientResponseExceptionToClientBadRequestException(WebClientResponseException exception) {
+    public static ClientBadRequestException
+    mapWebclientResponseExceptionToClientBadRequestException(WebClientResponseException exception) {
         ProblemDetail problemDetail = exception.getResponseBodyAs(ProblemDetail.class);
         if (problemDetail != null && problemDetail.getProperties() != null) {
             Object errors = problemDetail.getProperties().get("errors");

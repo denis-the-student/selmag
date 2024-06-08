@@ -2,10 +2,13 @@ package ag.selm.catalogue.service;
 
 import ag.selm.catalogue.entity.Product;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProductService {
     Iterable<Product> findAllProducts(String filter);
+
+    Iterable<Product> findProductsByIds(List<Integer> ids, String filter);
 
     Product createProduct(String title, String details);
 

@@ -11,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("catalogue-api/products")
@@ -20,15 +22,24 @@ public class ProductsRestController {
 
     @GetMapping
     public Iterable<Product> findProducts(
-            @RequestParam(name = "filter", required = false) String filter) {
+        @RequestParam(name = "filter", required = false) String filter) {
+
         return this.productService.findAllProducts(filter);
+    }
+
+    @GetMapping("/by-ids")
+    public Iterable<Product> findProductsByIds(
+        @RequestParam(name = "ids") List<Integer> ids,
+        @RequestParam(name = "filter", required = false) String filter) {
+
+        return this.productService.findProductsByIds(ids, filter);
     }
 
     @PostMapping
     public ResponseEntity<Product> createProduct(@Valid @RequestBody NewProductPayload payload,
                                                  BindingResult bindingResult,
                                                  UriComponentsBuilder uriComponentsBuilder)
-            throws BindException {
+        throws BindException {
 
         if (bindingResult.hasErrors()) {
             if (bindingResult instanceof BindException e) {
@@ -39,10 +50,10 @@ public class ProductsRestController {
         } else {
             Product product = this.productService.createProduct(payload.title(), payload.details());
             return ResponseEntity
-                    .created(uriComponentsBuilder
-                            .replacePath("catalogue-api/products/{productId}")
-                            .build(product.getId()))
-                    .body(product);
+                .created(uriComponentsBuilder
+                    .replacePath("catalogue-api/products/{productId}")
+                    .build(product.getId()))
+                .body(product);
         }
     }
 
