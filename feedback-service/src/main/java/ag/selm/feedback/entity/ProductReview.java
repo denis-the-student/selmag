@@ -17,4 +17,5 @@ public class ProductReview {
     private Integer productId;
     private Integer rating;
     private String review;
+    private String userId;
 }

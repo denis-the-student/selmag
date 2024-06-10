@@ -23,7 +23,7 @@ public class ProductController {
     private final ProductsClient productsClient;
     private final MessageSource messageSource;
 
-    @ModelAttribute("product")
+    @ModelAttribute(value = "product", binding = false)
     public Product loadProduct(@PathVariable("productId") int productId) {
         return this.productsClient.findProduct(productId)
             .orElseThrow(() -> new NoSuchElementException("catalogue.errors.product.not_found"));
@@ -40,11 +40,11 @@ public class ProductController {
     }
 
     @PostMapping("edit")
-    public String updateProduct(@ModelAttribute(name = "product", binding = false) Product product,
+    public String updateProduct(@PathVariable("productId") int productId,
                                 UpdateProductPayload payload, Model model) {
         try {
-            this.productsClient.updateProduct(product.id(), payload.title(), payload.details());
-            return "redirect:/catalogue/products/%d".formatted(product.id());
+            this.productsClient.updateProduct(productId, payload.title(), payload.details());
+            return "redirect:/catalogue/products/%d".formatted(productId);
         } catch (ClientBadRequestException exception) {
             model.addAttribute("payload", payload);
             model.addAttribute("errors", exception.getErrors());
@@ -53,8 +53,8 @@ public class ProductController {
     }
 
     @PostMapping("delete")
-    public String deleteProduct(@ModelAttribute("product") Product product) {
-        this.productsClient.deleteProduct(product.id());
+    public String deleteProduct(@PathVariable("productId") int productId) {
+        this.productsClient.deleteProduct(productId);
         return "redirect:/catalogue/products/list";
     }
 

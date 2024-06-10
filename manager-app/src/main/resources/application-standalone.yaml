@@ -5,19 +5,6 @@ selmag:
       registration-id: keycloak
 
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5433/selmag_manager_db
-    username: manager_user
-    password: password
-  flyway:
-    schemas:
-      - public
-      - user_management
-  jpa:
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
   security:
     oauth2:
       client:
@@ -28,7 +15,7 @@ spring:
         registration:
           keycloak:
             client-id: manager-app
-            client-secret: CgHBeJNVulYSg3IrO5obXHa8ogHk5tlp
+            client-secret: JwByKV4Y8m95GDYTNqJH6jfaj5dXpv8F
             scope:
               - openid
               - view_catalogue
