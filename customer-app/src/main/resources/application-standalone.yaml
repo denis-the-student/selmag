@@ -10,3 +10,18 @@ selmag:
         url: http://localhost:8084/feedback-api/product-reviews
       favourite-products:
         url: http://localhost:8084/feedback-api/favourite-products
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8082/realms/selmag
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: customer-app
+            client-secret: M1bhGCByxWDqVWeokJj6Z9sMGTI41lNc
+            scope:
+              - openid
+              - view_catalogue

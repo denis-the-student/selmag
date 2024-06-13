@@ -16,31 +16,31 @@ public class DefaultFavouriteProductService implements FavouriteProductService {
     private final FavouriteProductRepository repository;
 
     @Override
-    public Mono<FavouriteProduct> addProductToFavourites(int productId) {
-        return this.repository.findByProductId(productId).hasElement()
-            .flatMap(hasElement -> {
-                if (hasElement) {
-                    return Mono.empty();
-                }
-                else {
-                    return this.repository.save(
-                        new FavouriteProduct(UUID.randomUUID(), productId));
-                }
-            });
+    public Mono<FavouriteProduct> addProductToFavourites(int productId, String userId) {
+        return this.repository.findByProductIdAndUserId(productId, userId).hasElement()
+                .flatMap(hasElement -> {
+                    if (hasElement) {
+                        return Mono.empty();
+                    }
+                    else {
+                        return this.repository.save(
+                                new FavouriteProduct(UUID.randomUUID(), productId, userId));
+                    }
+                });
     }
 
     @Override
-    public Mono<Void> removeProductFromFavourites(int productId) {
-        return this.repository.deleteByProductId(productId);
+    public Mono<Void> removeProductFromFavourites(int productId, String userId) {
+        return this.repository.deleteByProductIdAndUserId(productId, userId);
     }
 
     @Override
-    public Mono<FavouriteProduct> findFavouriteProductByProduct(int productId) {
-        return this.repository.findByProductId(productId);
+    public Mono<FavouriteProduct> findFavouriteProductByProduct(int productId, String userId) {
+        return this.repository.findByProductIdAndUserId(productId, userId);
     }
 
     @Override
-    public Flux<FavouriteProduct> findFavouriteProducts() {
-        return this.repository.findAll();
+    public Flux<FavouriteProduct> findFavouriteProducts(String userId) {
+        return this.repository.findAllByUserId(userId);
     }
 }
