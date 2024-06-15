@@ -1,15 +1,13 @@
 package ag.selm.catalogue.repository;
 
 import ag.selm.catalogue.entity.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends CrudRepository<Product, Integer> {
 
     Iterable<Product> findAllByTitleLikeIgnoreCase(String filter);
 
-    Iterable<Product> findProductsByIdIn (List<Integer> ids);
-
-    Iterable<Product> findProductsByIdInAndTitleLikeIgnoreCase (List<Integer> ids, String filter);
+    Iterable<Product> findAllByIdInAndTitleLikeIgnoreCase(List<Integer> ids, String filter);
 }

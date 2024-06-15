@@ -34,8 +34,9 @@ public class WebClientProductReviewsClient implements ProductReviewsClient {
             .bodyValue(new NewProductReviewPayload(productId, rating, review))
             .retrieve()
             .bodyToMono(ProductReview.class)
-            .onErrorMap(WebClientResponseException.class,
-                ErrorHandlingUtils::mapWebclientResponseExceptionToClientBadRequestException);
+            .onErrorMap(WebClientResponseException.class, exception ->
+                ErrorHandlingUtils.mapWebclientResponseExceptionToClientBadRequestException(
+                        "Ошибка при добавлении отзыва  товаре", exception));
     }
 
 

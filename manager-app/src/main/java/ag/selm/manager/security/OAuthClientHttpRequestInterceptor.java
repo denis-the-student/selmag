@@ -24,24 +24,25 @@ public class OAuthClientHttpRequestInterceptor implements ClientHttpRequestInter
 
     @Setter
     private SecurityContextHolderStrategy securityContextHolderStrategy =
-        SecurityContextHolder.getContextHolderStrategy();
+            SecurityContextHolder.getContextHolderStrategy();
 
     @Override
     public ClientHttpResponse intercept(
-        HttpRequest request, byte[] body,
-        ClientHttpRequestExecution execution) throws IOException {
+            HttpRequest request, byte[] body,
+            ClientHttpRequestExecution execution) throws IOException {
 
         if (!request.getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
 
             OAuth2AuthorizedClient authorizedClient = authorizedClientManager.authorize(
-                OAuth2AuthorizeRequest.withClientRegistrationId(this.registrationId)
-                    .principal(this.securityContextHolderStrategy
-                        .getContext().getAuthentication())
-                    .build());
+                    OAuth2AuthorizeRequest
+                            .withClientRegistrationId(this.registrationId)
+                            .principal(this.securityContextHolderStrategy.getContext().getAuthentication())
+                            .build()
+            );
 
             if (authorizedClient != null) {
                 request.getHeaders().setBearerAuth(
-                    authorizedClient.getAccessToken().getTokenValue());
+                        authorizedClient.getAccessToken().getTokenValue());
             }
         }
 

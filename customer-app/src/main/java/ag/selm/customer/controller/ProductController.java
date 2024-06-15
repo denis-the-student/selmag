@@ -5,9 +5,11 @@ import ag.selm.customer.client.ProductReviewsClient;
 import ag.selm.customer.client.ProductsClient;
 import ag.selm.customer.client.exception.ClientBadRequestException;
 import ag.selm.customer.controller.payload.NewProductReviewPayload;
+import ag.selm.customer.entity.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.security.web.reactive.result.view.CsrfRequestDataValueProcessor;
 import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.util.Locale;
 import java.util.NoSuchElementException;
 
 @Controller
@@ -28,7 +29,28 @@ public class ProductController {
     private final ProductsClient productsClient;
     private final FavouriteProductsClient favouriteProductsClient;
     private final ProductReviewsClient productReviewsClient;
-    private final MessageSource messageSource;
+
+    @ModelAttribute(value = "product", binding = false)
+    public Mono<Product> loadProduct(@PathVariable("productId") int productId) {
+        return productsClient.findProduct(productId)
+                .switchIfEmpty(Mono.error(new NoSuchElementException(
+                        "customer.products.error.not_found")));
+    }
+
+    private Mono<Void> loadProductData(int productId, Model model) {
+        return Mono.zip(
+                        favouriteProductsClient.findFavouriteProductByProductId(productId)
+                                .map(favouriteProduct -> true)
+                                .defaultIfEmpty(false),
+                        productReviewsClient.findProductReviewsByProduct(productId)
+                                .collectList()
+                )
+                .flatMap(tuple -> {
+                    model.addAttribute("inFavourite", tuple.getT1());
+                    model.addAttribute("reviews", tuple.getT2());
+                    return Mono.empty();
+                });
+    }
 
     @GetMapping
     public Mono<String> getProductPage(@PathVariable("productId") int productId, Model model) {
@@ -69,35 +91,17 @@ public class ProductController {
 
     @ExceptionHandler(NoSuchElementException.class)
     public String handleNoSuchElementException(NoSuchElementException exception,
-                                               Model model, Locale locale) {
-        model.addAttribute("error",
-                this.messageSource.getMessage(exception.getMessage(), new Object[0],
-                        exception.getMessage(), locale));
+                                               Model model, ServerHttpResponse response) {
+        response.setStatusCode(HttpStatus.NOT_FOUND);
+        model.addAttribute("error", exception.getMessage());
         return "errors/404";
     }
 
-    private Mono<Void> loadProductData(int productId, Model model) {
-        return Mono.zip(
-                        productsClient.findProduct(productId)
-                                .switchIfEmpty(Mono.error(new NoSuchElementException("customer.products.error.not_found"))),
-                        favouriteProductsClient.findFavouriteProductByProductId(productId)
-                                .map(favouriteProduct -> true)
-                                .defaultIfEmpty(false),
-                        productReviewsClient.findProductReviewsByProduct(productId)
-                                .collectList()
-                )
-                .flatMap(tuple -> {
-                    model.addAttribute("product", tuple.getT1());
-                    model.addAttribute("inFavourite", tuple.getT2());
-                    model.addAttribute("reviews", tuple.getT3());
-                    return Mono.empty();
-                });
-    }
-
     @ModelAttribute
-    public Mono<CsrfToken> loadCsrfToken(ServerWebExchange exchange) {
-        Mono<CsrfToken> attribute = exchange.getAttribute(CsrfToken.class.getName());
-        return attribute.doOnSuccess(token -> exchange.getAttributes()
+    public Mono<CsrfToken> copyCsrfTokenToTheRightPlace(ServerWebExchange exchange) {
+        Mono<CsrfToken> csrfTokenMono = exchange.getAttribute(CsrfToken.class.getName());
+        return csrfTokenMono.doOnSuccess(token -> exchange.getAttributes()
                 .put(CsrfRequestDataValueProcessor.DEFAULT_CSRF_ATTR_NAME, token));
     }
+
 }

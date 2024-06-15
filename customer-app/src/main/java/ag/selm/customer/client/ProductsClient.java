@@ -10,6 +10,7 @@ public interface ProductsClient {
 
     Flux<Product> findAllProducts(String filter);
 
+
     Flux<Product> findProductsByIds(List<Integer> ids, String filter);
 
     Mono<Product> findProduct(int productId);

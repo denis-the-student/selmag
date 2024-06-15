@@ -22,28 +22,34 @@ public class ProductsController {
 
     @GetMapping("list")
     public Mono<String> getProductsListPage(
-        Model model,
-        @RequestParam(name = "filter", required = false) String filter) {
+            Model model,
+            @RequestParam(name = "filter", required = false) String filter) {
 
         model.addAttribute("filter", filter);
 
-        return this.productsClient.findAllProducts(filter)
-            .collectList()
-            .doOnNext(products -> model.addAttribute("products", products))
-            .thenReturn("customer/products/list");
+        return productsClient.findAllProducts(filter)
+                .collectList()
+                .doOnNext(products -> model.addAttribute("products", products))
+                .thenReturn("customer/products/list");
     }
 
     @GetMapping("favourites")
     public Mono<String> getFavouriteProductsPage(
-        Model model,
-        @RequestParam(name = "filter", required = false) String filter) {
+            Model model,
+            @RequestParam(name = "filter", required = false) String filter) {
 
-        return this.favouriteProductsClient.findAllFavouriteProducts()
-            .map(FavouriteProduct::productId)
-            .collectList()
-            .flatMap(favouriteProductsIds -> this.productsClient.findProductsByIds(favouriteProductsIds, filter)
+        return favouriteProductsClient.findAllFavouriteProducts()
+                .map(FavouriteProduct::productId)
                 .collectList()
-                .doOnNext(products -> model.addAttribute("products", products)))
-            .thenReturn("customer/products/favourites");
+                .flatMap(favouriteProductIds -> {
+                    if (favouriteProductIds.isEmpty()) {
+                        return Mono.just("customer/products/favourites");
+                    } else {
+                        return productsClient.findProductsByIds(favouriteProductIds, filter)
+                                .collectList()
+                                .doOnNext(products -> model.addAttribute("products", products))
+                                .thenReturn("customer/products/favourites");
+                    }
+                });
     }
 }

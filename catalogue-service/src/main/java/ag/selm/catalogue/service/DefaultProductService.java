@@ -19,36 +19,36 @@ public class DefaultProductService implements ProductService {
     @Override
     public Iterable<Product> findAllProducts(String filter) {
         if (filter != null && !filter.isBlank()) {
-            return this.productRepository.findAllByTitleLikeIgnoreCase("%" + filter + "%");
+            return productRepository.findAllByTitleLikeIgnoreCase("%" + filter + "%");
         } else {
-            return this.productRepository.findAll();
+            return productRepository.findAll();
         }
     }
 
     @Override
     public Iterable<Product> findProductsByIds(List<Integer> ids, String filter) {
         if (filter != null && !filter.isBlank()) {
-            return this.productRepository.findProductsByIdInAndTitleLikeIgnoreCase(ids, "%" + filter + "%");
+            return productRepository.findAllByIdInAndTitleLikeIgnoreCase(ids, "%" + filter + "%");
         } else {
-            return this.productRepository.findProductsByIdIn(ids);
+            return productRepository.findAllById(ids);
         }
     }
 
     @Override
     @Transactional
     public Product createProduct(String title, String details) {
-        return this.productRepository.save(new Product(null, title, details));
+        return productRepository.save(new Product(null, title, details));
     }
 
     @Override
     public Optional<Product> findProduct(int productId) {
-        return this.productRepository.findById(productId);
+        return productRepository.findById(productId);
     }
 
     @Override
     @Transactional
     public void updateProduct(Integer id, String title, String details) {
-        this.productRepository.findById(id)
+        productRepository.findById(id)
                 .ifPresentOrElse(product -> {
                     product.setTitle(title);
                     product.setDetails(details);
@@ -60,6 +60,6 @@ public class DefaultProductService implements ProductService {
     @Override
     @Transactional
     public void deleteProduct(Integer productId) {
-        this.productRepository.deleteById(productId);
+        productRepository.deleteById(productId);
     }
 }

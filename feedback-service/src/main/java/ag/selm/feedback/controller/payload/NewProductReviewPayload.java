@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 public record NewProductReviewPayload(
 
         @NotNull(message = "{feedback.products.reviews.create.errors.product_id_is_null}")
-        int productId,
+        Integer productId,
         
         @NotNull(message = "{feedback.products.reviews.create.errors.rating_is_null}")
         @Min(value = 1, message = "{feedback.products.reviews.create.errors.rating_is_below_min}")

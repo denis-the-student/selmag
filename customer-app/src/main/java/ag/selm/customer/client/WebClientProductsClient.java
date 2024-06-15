@@ -18,10 +18,12 @@ public class WebClientProductsClient implements ProductsClient {
     @Override
     public Flux<Product> findAllProducts(String filter) {
         return webClient
-            .get()
-            .uri("?filter={filter}", filter)
-            .retrieve()
-            .bodyToFlux(Product.class);
+                .get()
+                .uri(uriBuilder -> uriBuilder
+                        .queryParamIfPresent("filter", Optional.ofNullable(filter))
+                        .build())
+                .retrieve()
+                .bodyToFlux(Product.class);
     }
 
     @Override
@@ -29,7 +31,6 @@ public class WebClientProductsClient implements ProductsClient {
         return webClient
             .get()
             .uri(uriBuilder -> uriBuilder
-                .path("/by-ids")
                 .queryParam("ids", ids)
                 .queryParamIfPresent("filter", Optional.ofNullable(filter))
                 .build())

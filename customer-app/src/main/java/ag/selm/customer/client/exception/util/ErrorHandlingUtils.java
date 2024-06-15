@@ -10,7 +10,7 @@ import java.util.List;
 public class ErrorHandlingUtils {
 
     public static ClientBadRequestException
-    mapWebclientResponseExceptionToClientBadRequestException(WebClientResponseException exception) {
+    mapWebclientResponseExceptionToClientBadRequestException(String message, WebClientResponseException exception) {
         ProblemDetail problemDetail = exception.getResponseBodyAs(ProblemDetail.class);
         if (problemDetail != null && problemDetail.getProperties() != null) {
             Object errors = problemDetail.getProperties().get("errors");
@@ -18,10 +18,10 @@ public class ErrorHandlingUtils {
                 if (errorsList.isEmpty() || errorsList.get(0) instanceof String) {
                     @SuppressWarnings("unchecked")
                     List<String> errorMessages = (List<String>) errorsList;
-                    return new ClientBadRequestException(exception, errorMessages);
+                    return new ClientBadRequestException(message, exception, errorMessages);
                 }
             }
         }
-        return new ClientBadRequestException(exception, Collections.emptyList());
+        return new ClientBadRequestException(message, exception, Collections.emptyList());
     }
 }

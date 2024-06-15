@@ -4,7 +4,8 @@ server:
 selmag:
   service:
     catalogue:
-      url: http://localhost:8081/catalogue-api/products
+      products:
+        url: http://localhost:8081/catalogue-api/products
     feedback:
       product-reviews:
         url: http://localhost:8084/feedback-api/product-reviews
