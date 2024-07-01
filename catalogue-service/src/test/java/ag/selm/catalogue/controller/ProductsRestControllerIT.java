@@ -31,97 +31,139 @@ class ProductsRestControllerIT {
     void findProducts_ReturnsProductsList() throws Exception {
         // given
         var requestBuilder = MockMvcRequestBuilders
-            .get("/catalogue-api/products")
-            .param("filter", "товар")
-            .with(jwt().jwt(builder -> builder.claim("scope", "view_catalogue")));
+                .get("/catalogue-api/products")
+                .param("filter", "товар")
+                .with(jwt().jwt(builder -> builder.claim("scope", "view_catalogue")));
 
         // when
         this.mockMvc.perform(requestBuilder)
-            //then
-            .andDo(print())
-            .andExpectAll(
-                status().isOk(),
-                content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON),
-                content().json("""
-                    [
-                        {"id":  1, "title":  "Товар №1", "details": "Описание товара №1"},
-                        {"id":  3, "title":  "Товар №3", "details": "Описание товара №3"}
-                    ]
-                    """)
-            );
+                //then
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(content().json("""
+                        [
+                            {"id":  1, "title":  "Товар №1", "details": "Описание товара №1"},
+                            {"id":  3, "title":  "Товар №3", "details": "Описание товара №3"}
+                        ]
+                        """));
+    }
+
+    @Test
+    @Sql(scripts = "/sql/products.sql", config = @SqlConfig(encoding = "UTF-8"))
+    void findProducts_ByIds_ReturnsProductsList() throws Exception {
+        // given
+        var requestBuilder = MockMvcRequestBuilders
+                .get("/catalogue-api/products")
+                .param("ids", "1,2")
+                .with(jwt().jwt(builder -> builder.claim("scope", "view_catalogue")));
+
+        // when
+        this.mockMvc.perform(requestBuilder)
+                //then
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(content().json("""
+                        [
+                            {"id":  1, "title":  "Товар №1", "details": "Описание товара №1"},
+                            {"id":  2, "title":  "Шоколадка", "details": "Очень вкусная шоколадка"}
+                        ]
+                        """));
+    }
+
+    @Test
+    @Sql(scripts = "/sql/products.sql", config = @SqlConfig(encoding = "UTF-8"))
+    void findProducts_UserIsNotAuthorized_ReturnsForbidden() throws Exception {
+        // given
+        var requestBuilder = MockMvcRequestBuilders
+                .get("/catalogue-api/products")
+                .param("filter", "товар")
+                .with(jwt());
+
+        // when
+        this.mockMvc.perform(requestBuilder)
+                //then
+                .andDo(print())
+                .andExpect(status().isForbidden());
     }
 
     @Test
     void createProduct_RequestIsValid_ReturnsNewProduct() throws Exception {
         // given
         var requestBuilder = MockMvcRequestBuilders
-            .post("/catalogue-api/products")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content("""
-                {"title":  "Новый товар", "details": "Описание нового товара"}
-                """)
-            .with(jwt().jwt(builder -> builder.claim("scope", "edit_catalogue")));
+                .post("/catalogue-api/products")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                        {
+                            "title":  "Новый товар",
+                            "details": "Описание нового товара"
+                        }""")
+                .with(jwt().jwt(builder -> builder.claim("scope", "edit_catalogue")));
 
         // when
         this.mockMvc.perform(requestBuilder)
-            // then
-            .andDo(print())
-            .andExpectAll(
-                status().isCreated(),
-                header().string(HttpHeaders.LOCATION, "http://localhost/catalogue-api/products/1"),
-                content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON),
-                content().json("""
-                    {"id":  1, "title":  "Новый товар", "details": "Описание нового товара"}
-                    """)
-            );
+                // then
+                .andDo(print())
+                .andExpect(status().isCreated())
+                .andExpect(header().string(HttpHeaders.LOCATION, "http://localhost/catalogue-api/products/1"))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(content().json("""
+                                {
+                                    "id":  1,
+                                    "title":  "Новый товар",
+                                    "details": "Описание нового товара"
+                                }"""));
     }
 
     @Test
-    void createProduct_RequestIsInValid_ReturnsProblemDetail() throws Exception {
+    void createProduct_RequestIsInValid_ReturnsBadRequest() throws Exception {
         // given
         var requestBuilder = MockMvcRequestBuilders
-            .post("/catalogue-api/products")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content("""
-                {"title":  "  ", "details": "Описание нового товара"}
-                """)
-            .locale(new Locale("ru", "RU"))
-            .with(jwt().jwt(builder -> builder.claim("scope", "edit_catalogue")));
+                .post("/catalogue-api/products")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                        {
+                            "title":  "  ",
+                            "details": "Описание нового товара"
+                        }""")
+                .locale(new Locale("ru", "RU"))
+                .with(jwt().jwt(builder -> builder.claim("scope", "edit_catalogue")));
 
         // when
         this.mockMvc.perform(requestBuilder)
-            // then
-            .andDo(print())
-            .andExpectAll(
-                status().isBadRequest(),
-                content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON),
-                content().json("""
-                    {
-                    "errors": [
-                        "Название товара должно быть от 3 до 50 символов",
-                        "Название товара не может начинаться с пробела"
-                    ]
-                    }
-                    """)
-            );
+                // then
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON))
+                .andExpect(content().json("""
+                        {
+                            "errors": [
+                                "Название товара должно быть от 3 до 50 символов",
+                                "Название товара не может начинаться с пробела"
+                            ]
+                        }
+                        """));
     }
 
     @Test
     void createProduct_UserIsNotAuthorized_ReturnsForbidden() throws Exception {
         // given
         var requestBuilder = MockMvcRequestBuilders
-            .post("/catalogue-api/products")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content("""
-                {"title":  "Новый товар", "details": "Описание нового товара"}
-                """)
-            .locale(new Locale("ru", "RU"))
-            .with(jwt().jwt(builder -> builder.claim("scope", "view_catalogue")));
+                .post("/catalogue-api/products")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""
+                        {
+                            "title":  "Новый товар",
+                            "details": "Описание нового товара"
+                        }""")
+                .locale(new Locale("ru", "RU"))
+                .with(jwt().jwt(builder -> builder.claim("scope", "view_catalogue")));
 
         // when
         this.mockMvc.perform(requestBuilder)
-            // then
-            .andDo(print())
-            .andExpect(status().isForbidden());
+                // then
+                .andDo(print())
+                .andExpect(status().isForbidden());
     }
 }

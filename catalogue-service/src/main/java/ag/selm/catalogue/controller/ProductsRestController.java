@@ -22,17 +22,14 @@ public class ProductsRestController {
 
     @GetMapping
     public Iterable<Product> findProducts(
-        @RequestParam(name = "filter", required = false) String filter) {
+            @RequestParam(name = "ids", required = false) List<Integer> ids,
+            @RequestParam(name = "filter", required = false) String filter) {
 
-        return this.productService.findAllProducts(filter);
-    }
-
-    @GetMapping("/by-ids")
-    public Iterable<Product> findProductsByIds(
-        @RequestParam(name = "ids") List<Integer> ids,
-        @RequestParam(name = "filter", required = false) String filter) {
-
-        return this.productService.findProductsByIds(ids, filter);
+        if (ids == null || ids.isEmpty()) {
+            return this.productService.findAllProducts(filter);
+        } else {
+            return this.productService.findProductsByIds(ids, filter);
+        }
     }
 
     @PostMapping
@@ -51,7 +48,7 @@ public class ProductsRestController {
             Product product = this.productService.createProduct(payload.title(), payload.details());
             return ResponseEntity
                 .created(uriComponentsBuilder
-                    .replacePath("catalogue-api/products/{productId}")
+                    .replacePath("/catalogue-api/products/{productId}")
                     .build(product.getId()))
                 .body(product);
         }

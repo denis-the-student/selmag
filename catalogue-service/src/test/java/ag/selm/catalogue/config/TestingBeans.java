@@ -1,4 +1,4 @@
-package ag.selm.catalogue.controller.config;
+package ag.selm.catalogue.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

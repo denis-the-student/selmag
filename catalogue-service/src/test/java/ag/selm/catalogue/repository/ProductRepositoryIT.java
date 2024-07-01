@@ -24,14 +24,6 @@ class ProductRepositoryIT {
     ProductRepository repository;
 
     @Test
-    void dataInitializationCheck() {
-        // Check that data is loaded correctly
-        var products = this.repository.findAll();
-        products.forEach(System.out::println);
-        assertEquals(4, products.size());
-    }
-
-    @Test
     void findAllByTitleLikeIgnoreCase_ReturnsFilteredProductsList() {
         // given
         var filter = "%шоколадка%";

@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record UpdateProductPayload(
-    @Size(min = 3, max = 50, message = "{catalogue.products.update.errors.title_size_is_invalid}:zalupa")
+    @Size(min = 3, max = 50, message = "{catalogue.products.update.errors.title_size_is_invalid}")
     @Pattern(regexp = "^(?!\\s).*", message = "{catalogue.products.update.errors.title_starts_with_space}")
 
     String title,

@@ -41,11 +41,13 @@ public class ProductController {
 
     @PostMapping("edit")
     public String updateProduct(@PathVariable("productId") int productId,
-                                UpdateProductPayload payload, Model model) {
+                                UpdateProductPayload payload, Model model,
+                                HttpServletResponse response) {
         try {
             this.productsClient.updateProduct(productId, payload.title(), payload.details());
             return "redirect:/catalogue/products/%d".formatted(productId);
         } catch (ClientBadRequestException exception) {
+            response.setStatus(HttpStatus.BAD_REQUEST.value());
             model.addAttribute("payload", payload);
             model.addAttribute("errors", exception.getErrors());
             return "catalogue/products/edit";

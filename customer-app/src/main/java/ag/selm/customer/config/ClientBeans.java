@@ -31,7 +31,7 @@ public class ClientBeans {
 
     @Bean
     WebClientProductsClient webClientProductsClient(
-            @Value("${selmag.service.catalogue.url:}") String baseUrl,
+            @Value("${selmag.service.catalogue.products.url:http://localhost:8081/catalogue-api/products}") String baseUrl,
             WebClient.Builder selmagServicesWebClientBuilder) {
 
         return new WebClientProductsClient(
@@ -42,7 +42,7 @@ public class ClientBeans {
 
     @Bean
     WebClientProductReviewsClient webClientProductReviewsClient(
-            @Value("${selmag.service.feedback.product-reviews.url:}") String baseUrl,
+            @Value("${selmag.service.feedback.product-reviews.url:http://localhost:8084/feedback-api/product-reviews}") String baseUrl,
             WebClient.Builder selmagServicesWebClientBuilder) {
 
         return new WebClientProductReviewsClient(
@@ -53,7 +53,7 @@ public class ClientBeans {
 
     @Bean
     WebClientFavouriteProductsClient webClientFavouriteProductsClient(
-            @Value("${selmag.service.feedback.favourite-products.url:}") String baseUrl,
+            @Value("${selmag.service.feedback.favourite-products.url:http://localhost:8084/feedback-api/favourite-products}") String baseUrl,
             WebClient.Builder selmagServicesWebClientBuilder) {
 
         return new WebClientFavouriteProductsClient(

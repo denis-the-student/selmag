@@ -17,8 +17,4 @@ public class ClientBadRequestException extends RuntimeException{
         super(cause);
         this.errors = errors;
     }
-//
-//    public ClientBadRequestException(List<String> errors) {
-//        this.errors = errors;
-//    }
 }
